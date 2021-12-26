@@ -65,12 +65,14 @@ const IndexPage = () => {
   const dni = React.createRef();
   const [nacimiento, setNacimiento] = useState(inicialNac);
   const donde = React.createRef();
+  const tipoVacuna1 = React.createRef();
+  const tipoVacuna2 = React.createRef();
 
   const handleSubmit = (e) => {
     e.preventDefault()
     const nacOut = formatDate(nacimiento);
     console.log(nacOut);
-    navigate(`/pase?nombre=${nombre.current.value}&apellido=${apellido.current.value}&dni=${dni.current.value}&nacimiento=${nacOut}&donde=${donde.current.value}`)
+    navigate(`/pase?nombre=${nombre.current.value}&apellido=${apellido.current.value}&dni=${dni.current.value}&nacimiento=${nacOut}&donde=${donde.current.value}&tipoVacuna1=${tipoVacuna1.current.value}&tipoVacuna2=${tipoVacuna2.current.value}`)
   }
 
   return (
@@ -118,6 +120,25 @@ const IndexPage = () => {
             type="text"
             ref={donde} />
         </label>
+
+        <label css={labelBlock}>
+          <span css={labelStyle}>Vacuna Aplicada en Primera Dosis:</span>
+          <input
+            css={inputTextStyle}
+            defaultValue="Sinopharm Vacuna SARSCOV 2"
+            type="text"
+            ref={tipoVacuna1} />
+        </label>
+
+        <label css={labelBlock}>
+          <span css={labelStyle}>Vacuna Aplicada en Segunda Dosis:</span>
+          <input
+            css={inputTextStyle}
+            defaultValue="Sinopharm Vacuna SARSCOV 2"
+            type="text"
+            ref={tipoVacuna2} />
+        </label>
+
         <div  css={submitStyle}>
         <input type="submit" value="Generar mi pase" />
         </div>
@@ -127,3 +148,4 @@ const IndexPage = () => {
 }
 
 export default IndexPage
+
