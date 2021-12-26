@@ -105,6 +105,8 @@ const PasePage = () => {
     const [dni, setDni] = useQueryParam("dni", StringParam);
     const [nacimiento, setNacimiento] = useQueryParam("nacimiento", StringParam);
     const [donde, setdonde] = useQueryParam("donde", StringParam);
+    const [tipoVacuna1, setTipoVacuna1] = useQueryParam("tipoVacuna1", StringParam);
+    const [tipoVacuna2, setTipoVacuna2] = useQueryParam("tipoVacuna2", StringParam);
 
     var today = new Date();
     const date=today.getDate() + "/"+ parseInt(today.getMonth()+1) +"/"+ today.getFullYear();
@@ -122,7 +124,7 @@ const PasePage = () => {
       </div>
 
       <div css={vacuna}>
-            <div css={[vacPos, texto]}>Sinopharm Vacuna SARSCOV 2</div>
+            <div css={[vacPos, texto]}>{tipoVacuna1}</div>
             <div css={[lotePos, texto]}>202108B1249</div>
             <div css={[fechaPos, texto]}>13/09/2021</div>
             <div css={[dosisPos, texto]}>Primera</div>
@@ -130,7 +132,7 @@ const PasePage = () => {
       </div>
 
     <div css={vacuna}>
-        <div css={[vacPos, texto]}>Sinopharm Vacuna SARSCOV 2</div>
+        <div css={[vacPos, texto]}>{tipoVacuna2}</div>
         <div css={[lotePos, texto]}>202109B1358</div>
         <div css={[fechaPos, texto]}>21/10/2021</div>
         <div css={[dosisPos, texto]}>Segunda</div>
@@ -143,3 +145,4 @@ const PasePage = () => {
 }
 
 export default PasePage
+
